@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SpringBoot - Lista de Convidados</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link src="resources/static/css/main.css" rel="stylesheet"/>
+</head>
+<script type="text/javascript">
+    function pag()
+    {
+        location.href="http://localhost:8080/adicionarConvidado"
+    }
+</script>
+<body>
+
+
+        <div class="container">
+            <h2>Lista de Convidados</h2>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <form id="custom-search-form" class="form-search form-horizontal pull-right">
+                            <div class="input-append span12">
+                                <input type="text" class="search-query" placeholder="Search"/>
+                                <button type="submit" class="btn">Buscar<i class="icon-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="convidado : ${convidados}">
+                        <td> <span th:text="${convidado.nome}"></span> </td>
+                        <td> <span th:text="${convidado.email}"></span> </td>
+                        <td> <span th:text="${convidado.telefone}"></span></td>
+                    </tr>
+                </tbody>
+
+
+
+            </table>
+            <button type="button" class="btn btn-primary" onclick="pag()">Adicionar um convidado</button>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
